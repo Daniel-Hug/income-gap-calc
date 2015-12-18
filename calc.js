@@ -115,6 +115,11 @@ var getPercentile = (function() {
 	};
 })();
 
+// prevent other scripts from interfering with input
+on(qs('.income-gap-calc input'), 'keydown', function(event) {
+	event.stopPropagation();
+});
+
 var resultsContainer = qs('.income-gap-calc .results');
 on(qs('.income-gap-calc form'), 'submit', instead(function() {
 	removeChilds(resultsContainer);
